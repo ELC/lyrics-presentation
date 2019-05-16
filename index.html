@@ -1,23 +1,91 @@
 <html>
 
 <head>
-    <script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@2.5.0/dist/pptxgen.bundle.js"></script>
-    <script src="pptx.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@2.5.0/dist/pptxgen.bundle.js">
+    </script>
+    <script type="text/javascript" src="webl10n.min.js"></script>
+    <script type="text/javascript" src="pptx.js"></script>
+    <link rel="prefetch" type="application/l10n" href="lang.ini" />
 
     <style>
+        textarea {
+            margin: 20px;
+            font-family: "Verdana";
+            font-size: 32;
+            text-transform: uppercase;
+            resize: none;
+            width: 520px;
+            min-width: 520px;
+            max-width: 520px;
+        }
+
+        body {
+            font-family: "Verdana";
+            background-color: #eee;
+        }
+
+        h1 {
+            text-decoration: none;
+            font-size: 28;
+            margin: 0;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        .main-container {
+            display: flex;
+            background-color: white;
+            height: 95%;
+            width: 95%;
+            margin: 20px 20px 20px 20px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        .right {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-flow: column;
+        }
+
+        .right .lang-nav {
+            display: flex;
+            height: 35px;
+            margin: 20px 20px 0 0;
+            justify-content: flex-end;
+        }
+
+        .flag {
+            width: 35px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .right .content {
+            flex: 1 1 auto;
+            margin-right: 20px;
+            font-size: 16;
+        }
+
+        .right .buttons {
+            flex: 0 1 40px;
+            margin: 0 20px 20px 0;
+        }
+
         .button {
             border: none;
             color: white;
             padding: 15px 32px;
             text-align: center;
             text-decoration: none;
-            display: inline-block;
             font-size: 24px;
-            height: 30px;
-            margin: auto;
+            margin: 5px auto;
             font-family: "Verdana";
             height: 60px;
             cursor: pointer;
+            width: 100%
         }
 
         .blue {
@@ -36,29 +104,39 @@
             background-color: hsl(4, 65%, 30%);
         }
 
-        textarea {
-            margin: 20px;
-            font-family: "Verdana";
-            font-size: 44;
-            text-transform: uppercase;
-            resize: none;
+        .contact-info {
+            font-size: 12;
         }
-
-        body {
-            display: flex;
-            font-family: "Verdana";
-        }
-
     </style>
 </head>
 
 <body>
+    <div class="main-container">
+        <textarea id="lyrics" cols=27></textarea>
+        <aside class="right">
+            <header class="lang-nav">
+                <img class="flag" onclick="changeLang('en')"
+                    src="https://lipis.github.io/flag-icon-css/flags/4x3/us.svg" alt="United States Flag">
+                <img class="flag" onclick="changeLang('es')"
+                    src="https://lipis.github.io/flag-icon-css/flags/4x3/es.svg" alt="Spain Flag">
+            </header>
 
-    <textarea id="lyrics" cols=27 ></textarea>
+            <section class="content">
+                <h1 data-l10n-id="instructions"></h1>
+                <p data-l10n-id="instructionsDetails1"></p>
+                <p data-l10n-id="instructionsDetails2"></p>
+                <p data-l10n-id="instructionsDetails3"></p>
+                <p data-l10n-id="instructionsDetails4"></p>
+            </section>
 
-    <button class="button blue" onclick="createPPT()">Generate Presentation</button>
-    <button class="button red" onclick="clearText()">Clear Text</button>
-
+            <footer class="buttons">
+                <button class="button blue" onclick="createPPT()" data-l10n-id="generate-button"></button>
+                <button class="button red" onclick="clearText()" data-l10n-id="clear-button"></button>
+                <p class="contact-info"><span data-l10n-id="contact"> </span> <a
+                        href="mailto:castanoezequielleonardo@gmail.com">castanoezequielleonardo@gmail.com</a></p>
+            </footer>
+        </aside>
+    </div>
 </body>
 
 

@@ -57,12 +57,15 @@ function clearText() {
     document.getElementById('lyrics').value = '';
 }
 
-window.onload = function () {
-    document.getElementById('lyrics').value = "Write the Lyrics - Escribe la letra \n\n";
-
-    document.getElementById('lyrics').value += "Use Empty lines to separate verses \n\n";
-    document.getElementById('lyrics').value += "Usa Lineas en Blanco para separar versos \n\n";
-
-    document.getElementById('lyrics').value += "Use --- to separate songs \n\n";
-    document.getElementById('lyrics').value += "Usa --- para separar canciones";
+function changeLang(locale) {
+    document.webL10n.setLanguage(locale);
 }
+
+window.addEventListener('localized', function () {
+    document.getElementById('lyrics').value = document.webL10n.get('verse1') + "\n\n";
+    document.getElementById('lyrics').value += document.webL10n.get('verse2') + "\n\n";
+    document.getElementById('lyrics').value += document.webL10n.get('separator') + "\n\n";
+    document.getElementById('lyrics').value += document.webL10n.get('verse1') + "\n\n";
+    document.getElementById('lyrics').value += document.webL10n.get('verse2') + "\n\n";
+    document.getElementById('lyrics').value += document.webL10n.get('verse3');
+}, false);
