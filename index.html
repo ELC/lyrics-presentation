@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@2.5.0/dist/pptxgen.bundle.js"></script>
+    <script src="pptx.js"></script>
+
+    <style>
+        .button {
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 24px;
+            height: 30px;
+            margin: auto;
+            font-family: "Verdana";
+            height: 60px;
+            cursor: pointer;
+        }
+
+        .blue {
+            background-color: hsl(195, 100%, 36%);
+        }
+
+        .blue:hover {
+            background-color: hsl(195, 100%, 27%);
+        }
+
+        .red {
+            background-color: hsl(4, 65%, 44%);
+        }
+
+        .red:hover {
+            background-color: hsl(4, 65%, 30%);
+        }
+
+        textarea {
+            margin: 20px;
+            font-family: "Verdana";
+            font-size: 44;
+            text-transform: uppercase;
+            resize: none;
+        }
+
+        body {
+            display: flex;
+            font-family: "Verdana";
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <textarea id="lyrics" cols=27 ></textarea>
+
+    <button class="button blue" onclick="createPPT()">Generate Presentation</button>
+    <button class="button red" onclick="clearText()">Clear Text</button>
+
+</body>
+
+
+</html>
