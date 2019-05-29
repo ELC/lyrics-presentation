@@ -69,3 +69,17 @@ window.addEventListener('localized', function () {
     document.getElementById('lyrics').value += document.webL10n.get('verse2') + "\n\n";
     document.getElementById('lyrics').value += document.webL10n.get('verse3');
 }, false);
+
+function adjust() {
+    text = document.getElementById("lyrics");
+    width = text.clientWidth * 24.5 / 520;
+    text.style.fontSize = width + "pt";
+}
+
+window.onload = function (event) {
+    adjust();
+};
+
+window.onresize = function (event) {
+    adjust();
+};

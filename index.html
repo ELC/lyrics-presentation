@@ -9,6 +9,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@2.5.0/dist/pptxgen.bundle.js"></script>
     <script type="text/javascript" src="webl10n.min.js"></script>
     <script type="text/javascript" src="pptx.js"></script>
+    
     <link rel="prefetch" type="application/l10n" href="lang.ini" />
 
     <title>Lyrics Presentation Generator &#124; Ezequiel Leonardo Castaño Personal Website</title>
@@ -18,62 +19,72 @@
     <meta property="article:section" content="Presentation" />
     <meta property="article:published_time" content="2019-05-16" />
 
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Lyrics Presentation Generator &#124; Ezequiel Leonardo Castaño Personal Website"/>
-    <meta property="og:description" content="A free online tool to generate power point presentations for lyrics"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:title"
+        content="Lyrics Presentation Generator &#124; Ezequiel Leonardo Castaño Personal Website" />
+    <meta property="og:description" content="A free online tool to generate power point presentations for lyrics" />
     <meta property="og:site_name" content="Ezequiel Leonardo Castaño Personal Website" />
-    <meta property="og:url" content="https://elc.github.io/lyrics-presentation/"/>
-    <meta property="og:image" content="https://elc.github.io/lyrics-presentation/media_image.png"/>
+    <meta property="og:url" content="https://elc.github.io/lyrics-presentation/" />
+    <meta property="og:image" content="https://elc.github.io/lyrics-presentation/media_image.png" />
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Lyrics Presentation Generation &#124; Ezequiel Leonardo Castaño Personal Website">
+    <meta name="twitter:title"
+        content="Lyrics Presentation Generation &#124; Ezequiel Leonardo Castaño Personal Website">
     <meta name="twitter:description" content="A free online tool to generate power point presentations for lyrics">
     <meta name="twitter:url" content="https://elc.github.io/lyrics-presentation/">
     <meta name="twitter:image" content="https://elc.github.io/lyrics-presentation/media_image.png">
 
-    <meta name="google-site-verification" content="UKZ1mYz9vI6xkYtBnIQL-cjCusUxX-2fKT7wdtJEdZU"/>
+    <meta name="google-site-verification" content="UKZ1mYz9vI6xkYtBnIQL-cjCusUxX-2fKT7wdtJEdZU" />
 
     <style>
-        textarea {
-            margin: 20px;
-            font-family: "Verdana";
-            font-size: 25pt;
-            text-transform: uppercase;
-            resize: none;
-            width: 520px;
-            min-width: 520px;
-            max-width: 520px;
-        }
 
         body {
             font-family: "Verdana";
             background-color: #eee;
-        }
-
-        h1 {
-            text-decoration: none;
-            font-size: 28pt;
-            margin: 0;
-        }
-
-        p {
             text-align: justify;
         }
 
+        .lyrics-container {
+            margin: 0em 30px 30px 30px;
+            font-family: "Verdana";
+            font-size: 9pt;
+            text-transform: uppercase;
+            resize: none;
+            grid-column-start: 1;
+            grid-column-end: 1;
+            grid-row-start: 2;
+            grid-row-end: 2;
+        }
+
+        .content-title {
+            text-decoration: none;
+            font-size: 18pt;
+            margin: 0;
+        }
+
         .main-container {
-            display: flex;
+            display: grid;
+            grid-template-columns: 100% 0;
+            grid-template-rows: auto 500px auto;
             background-color: white;
             height: 95%;
-            width: 95%;
             margin: 20px 20px 20px 20px;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         }
 
+        .buttons {
+            grid-column-start: 1;
+            grid-column-end: 1;
+            grid-row-start: 3;
+            grid-row-end: 3;
+            margin: 0 2em 2em 2em;
+        }
+
         .right {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            flex-flow: column;
+            grid-column-start: 1;
+            grid-column-end: 1;
+            grid-row-start: 1;
+            grid-row-end: 1;
         }
 
         .right .lang-nav {
@@ -84,29 +95,22 @@
         }
 
         .flag {
-            width: 35px;
+            width: 30px;
             cursor: pointer;
             margin-left: 10px;
         }
 
-        .right .content {
-            flex: 1 1 auto;
-            margin-right: 20px;
-            font-size: 16pt;
-        }
-
-        .right .buttons {
-            flex: 0 1 40px;
-            margin: 0 20px 20px 0;
+        .content {
+            margin: 0 2em 2em 2em;
+            font-size: 12pt;
         }
 
         .button {
             border: none;
             color: white;
-            padding: 15px 32px;
             text-align: center;
             text-decoration: none;
-            font-size: 18pt;
+            font-size: 14pt;
             margin: 5px auto;
             font-family: "Verdana";
             height: 60px;
@@ -131,14 +135,59 @@
         }
 
         .contact-info {
-            font-size: 12pt;
+            font-size: 8pt;
+        }
+
+        @media only screen and (min-width: 1024px) {
+            .main-container {
+                display: grid;
+                grid-template-columns: 520px auto;
+                grid-template-rows: auto auto;
+            }
+
+            .content {
+                margin: 0px 1em 1em 0em;
+                font-size: 14pt;
+            }
+
+            .button {
+                font-size: 18pt;
+            }
+
+            .lyrics-container {
+                margin: 20px;
+                grid-column-start: 1;
+                grid-column-end: 1;
+                grid-row-start: 1;
+                grid-row-end: 3;
+            }
+
+            .right {
+                grid-column-start: 2;
+                grid-column-end: 2;
+                grid-row-start: 1;
+                grid-row-end: 1;
+            }
+
+            .buttons {
+                grid-column-start: 2;
+                grid-column-end: 2;
+                grid-row-start: 2;
+                grid-row-end: 2;
+                margin: 0 1em 1em 0em;
+            }
+
+            .contact-info {
+                font-size: 10pt;
+            }
+
         }
     </style>
 </head>
 
 <body>
     <div class="main-container">
-        <textarea id="lyrics" cols=27></textarea>
+        <textarea id="lyrics" class="lyrics-container"></textarea>
         <aside class="right">
             <header class="lang-nav">
                 <img class="flag" onclick="changeLang('en')"
@@ -148,31 +197,39 @@
             </header>
 
             <section class="content">
-                <h1 data-l10n-id="instructions"></h1>
+                <h1 class="content-title" data-l10n-id="instructions"></h1>
                 <p data-l10n-id="instructionsDetails1"></p>
                 <p data-l10n-id="instructionsDetails2"></p>
                 <p data-l10n-id="instructionsDetails3"></p>
                 <p data-l10n-id="instructionsDetails4"></p>
                 <p>
                     <span data-l10n-id="instructionsDetails5"></span>
-                    <a href="https://elc.github.io/posts/online-lyrics-presentation-generator/" data-l10n-id="english"></a>
+                    <a href="https://elc.github.io/posts/online-lyrics-presentation-generator/"
+                        data-l10n-id="english"></a>
                     <span data-l10n-id="and"></span>
-                    <a href="https://elc.github.io/posts/online-lyrics-presentation-generator/es/" data-l10n-id="spanish"></a>
+                    <a href="https://elc.github.io/posts/online-lyrics-presentation-generator/es/"
+                        data-l10n-id="spanish"></a>
                 </p>
             </section>
-
-            <footer class="buttons">
-                <button class="button blue" onclick="createPPT(); ga('send', 'event', 'PPT Generated', 'click', 'PPT Lyrics Generated');" data-l10n-id="generate-button"></button>
-                <button class="button red" onclick="clearText()" data-l10n-id="clear-button"></button>
-                <p class="contact-info"><span data-l10n-id="contact"> </span> <a
-                        href="mailto:castanoezequielleonardo@gmail.com">castanoezequielleonardo@gmail.com</a></p>
-            </footer>
         </aside>
+        <footer class="buttons">
+            <button class="button blue"
+                onclick="createPPT(); ga('send', 'event', 'PPT Generated', 'click', 'PPT Lyrics Generated');"
+                data-l10n-id="generate-button"></button>
+            <button class="button red" onclick="clearText()" data-l10n-id="clear-button"></button>
+            <p class="contact-info">
+                <span data-l10n-id="contact"></span>
+                <a href="mailto:castanoezequielleonardo@gmail.com">castanoezequielleonardo@gmail.com</a>
+            </p>
+        </footer>
     </div>
 
     <!-- Google Analytics -->
     <script>
-        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        window.ga = window.ga || function () {
+            (ga.q = ga.q || []).push(arguments)
+        };
+        ga.l = +new Date;
         ga('create', 'UA-71773079-3', 'auto');
         ga('send', 'pageview');
     </script>
