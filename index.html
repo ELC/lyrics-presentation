@@ -89,7 +89,6 @@
 
         .right .lang-nav {
             display: flex;
-            height: 35px;
             margin: 20px 20px 0 0;
             justify-content: flex-end;
         }
@@ -213,6 +212,10 @@
             </section>
         </aside>
         <footer class="buttons">
+            <div  class="content">
+                <input type="checkbox" id="AllCapsToggle" checked onclick="updateUpperCase();">
+                <label data-l10n-id="allCapsWarning"></label>
+            </div>
             <button class="button blue"
                 onclick="createPPT(); ga('send', 'event', 'PPT Generated', 'click', 'PPT Lyrics Generated');"
                 data-l10n-id="generate-button"></button>

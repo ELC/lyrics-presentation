@@ -42,13 +42,23 @@ function createPPT() {
     pptx.save("Presentation - Created with ELCs Presentation Generator");
 }
 
+function updateUpperCase(){
+    var lyrics = document.getElementById("lyrics")
+    var allCaps = document.getElementById("AllCapsToggle")
+
+    lyrics.style["text-transform"] = allCaps.checked ? "uppercase": "inherit"
+}
+
 function parseLyrics(text) {
     return text.replace(/[\r\n]{3,}/, "\n\n").split("\n\n");
 }
 
 function createSlide(pptx, text) {
     var slide = pptx.addNewSlide('Template');
-    slide.addText(text.toUpperCase(), {
+    var allCaps = document.getElementById("AllCapsToggle")
+    
+    text = allCaps.checked ? text.toUpperCase() : text
+    slide.addText(text, {
         placeholder: 'body'
     });
 }
