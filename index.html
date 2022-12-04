@@ -38,169 +38,146 @@
     <meta name="google-site-verification" content="UKZ1mYz9vI6xkYtBnIQL-cjCusUxX-2fKT7wdtJEdZU" />
 
     <style>
-        body {
+        :root {
             font-family: "Verdana";
             background-color: #eee;
+            color: #333;
             text-align: justify;
-        }
-
-        .lyrics-container {
-            margin: 0em 30px 30px 30px;
-            font-family: "Verdana";
-            font-size: 9pt;
-            text-transform: uppercase;
-            resize: none;
-            grid-column-start: 1;
-            grid-column-end: 1;
-            grid-row-start: 2;
-            grid-row-end: 2;
-        }
-
-        .content-title {
-            text-decoration: none;
-            font-size: 18pt;
-            margin: 0;
         }
 
         .main-container {
             display: grid;
-            grid-template-columns: 100% 0;
-            grid-template-rows: auto 500px auto;
+            grid: auto 520px / 100%;
             background-color: white;
-            height: 95%;
-            margin: 20px 20px 20px 20px;
+            margin: 1em;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         }
 
-        .buttons {
-            grid-column-start: 1;
-            grid-column-end: 1;
-            grid-row-start: 3;
-            grid-row-end: 3;
-            margin: 0 2em 2em 2em;
+        .lyrics-container {
+            margin: 0em 0.5em 0.5em;
+            font-family: "Verdana";
+            font-size: 9pt;
+            text-transform: uppercase;
+            resize: none;
+            grid-column: 1;
+            grid-row: 2;
         }
 
-        .right {
-            grid-column-start: 1;
-            grid-column-end: 1;
-            grid-row-start: 1;
-            grid-row-end: 1;
+        .aside {
+            grid-column: 1;
+            grid-row: 1;
+            margin: 1em 1em 1em 1em;
         }
 
-        .right .lang-nav {
-            display: flex;
-            margin: 20px 20px 0 0;
-            justify-content: flex-end;
-        }
-
-        .flag {
-            width: 30px;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-
-        .content {
-            margin: 0 2em 2em 2em;
+        .instructions {
             font-size: 12pt;
         }
 
-        .button {
+        .instructions__title {
+            font-size: 18pt;
+            margin: 0;
+        }
+
+        .language-selector {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .language-selector__flag {
+            width: 2em;
+            cursor: pointer;
+            margin-left: 0.5em;
+        }
+
+        .button-area {
+            font-weight: bold;
+        }
+
+        .button-area__toggle {
+            font-family: "Arial";
+        }
+
+        .button-area__button {
             border: none;
-            color: white;
+            color: #eee;
             text-align: center;
-            text-decoration: none;
             font-size: 14pt;
-            margin: 5px auto;
+            margin: 0.5em auto;
             font-family: "Verdana";
-            height: 60px;
+            font-weight: 500;
+            padding: 1em;
             cursor: pointer;
             width: 100%
         }
 
-        .blue {
+        .button-area__button--blue {
             background-color: hsl(195, 100%, 36%);
         }
 
-        .blue:hover {
+        .button-area__button--blue:hover {
             background-color: hsl(195, 100%, 27%);
         }
 
-        .red {
+        .button-area__button--red {
             background-color: hsl(4, 65%, 44%);
         }
 
-        .red:hover {
+        .button-area__button--red:hover {
             background-color: hsl(4, 65%, 30%);
         }
 
-        .contact-info {
+        .contact {
             font-size: 8pt;
         }
 
         @media only screen and (min-width: 1024px) {
             .main-container {
-                display: grid;
-                grid-template-columns: 520px auto;
-                grid-template-rows: auto auto;
-            }
-
-            .content {
-                margin: 0px 1em 1em 0em;
-                font-size: 14pt;
-            }
-
-            .button {
-                font-size: 18pt;
+                grid: auto / 520px auto;
             }
 
             .lyrics-container {
-                margin: 20px;
-                grid-column-start: 1;
-                grid-column-end: 1;
-                grid-row-start: 1;
-                grid-row-end: 3;
+                margin: 0.5em;
+                grid-row: 1;
             }
 
-            .right {
-                grid-column-start: 2;
-                grid-column-end: 2;
-                grid-row-start: 1;
-                grid-row-end: 1;
+            .aside {
+                grid-column: 2;
+                margin: 1em 2em 1em 0.5em;
             }
 
-            .buttons {
-                grid-column-start: 2;
-                grid-column-end: 2;
-                grid-row-start: 2;
-                grid-row-end: 2;
-                margin: 0 1em 1em 0em;
+            .instructions {
+                font-size: 14pt;
             }
 
-            .contact-info {
+            .button-area__button {
+                font-size: 18pt;
+            }
+
+            .contact {
                 font-size: 10pt;
             }
-
         }
     </style>
 </head>
 
 <body>
-    <div class="main-container">
+    <main class="main-container">
         <textarea id="lyrics" class="lyrics-container"></textarea>
-        <aside class="right">
-            <header class="lang-nav">
-                <img class="flag" onclick="changeLang('en')" src="img/flag_of_united_kingdom.svg"
+        <aside class="aside">
+            <header class="language-selector">
+                <img class="language-selector__flag" onclick="changeLang('en')" src="img/flag_of_united_kingdom.svg"
                     alt="United Kingdom Flag">
-                <img class="flag" onclick="changeLang('es')" src="img/flag_of_spain.svg" alt="Spain Flag">
+                <img class="language-selector__flag" onclick="changeLang('es')" src="img/flag_of_spain.svg"
+                    alt="Spain Flag">
             </header>
 
-            <section class="content">
-                <h1 class="content-title" data-l10n-id="instructions"></h1>
-                <p data-l10n-id="instructionsDetails1"></p>
-                <p data-l10n-id="instructionsDetails2"></p>
-                <p data-l10n-id="instructionsDetails3"></p>
-                <p data-l10n-id="instructionsDetails4"></p>
-                <p>
+            <section class="instructions">
+                <h1 class="instructions__title" data-l10n-id="instructions"></h1>
+                <p class="instructions__paragraph" data-l10n-id="instructionsDetails1"></p>
+                <p class="instructions__paragraph" data-l10n-id="instructionsDetails2"></p>
+                <p class="instructions__paragraph" data-l10n-id="instructionsDetails3"></p>
+                <p class="instructions__paragraph" data-l10n-id="instructionsDetails4"></p>
+                <p class="instructions__paragraph">
                     <span data-l10n-id="instructionsDetails5"></span>
                     <a href="https://elc.github.io/posts/online-lyrics-presentation-generator/"
                         data-l10n-id="english"></a>
@@ -209,22 +186,25 @@
                         data-l10n-id="spanish"></a>
                 </p>
             </section>
+            <section class="button-area">
+                <div class="button-area__toggle">
+                    <input type="checkbox" id="AllCapsToggle" checked onclick="updateUpperCase();">
+                    <label data-l10n-id="allCapsWarning"></label>
+                </div>
+                <button class="button-area__button button-area__button--blue"
+                    onclick="createPPT(); ga('send', 'event', 'PPT Generated', 'click', 'PPT Lyrics Generated');"
+                    data-l10n-id="generate-button"></button>
+                <button class="button-area__button button-area__button--red" onclick="clearText()"
+                    data-l10n-id="clear-button"></button>
+            </section>
+            <footer class="contact">
+                <p class="contact__details">
+                    <span data-l10n-id="contact"></span>
+                    castanoezequielleonardo at gmail dot com
+                </p>
+            </footer>
         </aside>
-        <footer class="buttons">
-            <div class="content">
-                <input type="checkbox" id="AllCapsToggle" checked onclick="updateUpperCase();">
-                <label data-l10n-id="allCapsWarning"></label>
-            </div>
-            <button class="button blue"
-                onclick="createPPT(); ga('send', 'event', 'PPT Generated', 'click', 'PPT Lyrics Generated');"
-                data-l10n-id="generate-button"></button>
-            <button class="button red" onclick="clearText()" data-l10n-id="clear-button"></button>
-            <p class="contact-info">
-                <span data-l10n-id="contact"></span>
-                <a href="mailto:castanoezequielleonardo@gmail.com">castanoezequielleonardo@gmail.com</a>
-            </p>
-        </footer>
-    </div>
+    </main>
 
     <!-- Google Analytics -->
     <script>
